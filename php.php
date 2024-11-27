@@ -1,24 +1,24 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 require 'vendor/autoload.php';
-$defaultMail = "int@scadaint.ru";
+$defaultMail = "4neroq4@gmail.com";
 $email_addresses = array(
     'Техническая поддержка' => 'support@scadaint.ru',
     'Запрос документации' => 'commerce@scadaint.ru',
     'Запрос пробной версии' => 'commerce@scadaint.ru',
     'Запрос ценового предложения' => 'commerce@scadaint.ru',
-    'Запрос на обучение' => 'commerce@scadaint.ru' 
+    'Запрос на обучение' => 'commerce@scadaint.ru'
 );
 $mail = new PHPMailer(true);
 $mail->isHTML(true);
 $mail->CharSet = "UTF-8";
 $mail->isSMTP();
-$mail->SMTPAuth = false;
-$mail->Host = "smtp.elesy.ru";
-$mail->Port = 25;
-$mail->Username = "";
-$mail->Password = "";
-$mail->setFrom('noreply.scadaint@scadaint.ru', 'scadaint.ru');
+$mail->SMTPAuth = true;
+$mail->SMTPSecure = 'ssl';
+$mail->Host = "smtp.yandex.ru";
+$mail->Port = 465;
+$mail->Username = "aadavidenkoweb@yandex.ru";
+$mail->Password = "dbccigpfpdietirz";
 $mail->addAddress($defaultMail);
 $body = "<h1>Письмо отправлено с сайта scadaint.ru</h1>";
 if(trim(!empty($_POST['company']))) {
